@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>75 GAMES | Chess Arena</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="#" class="logo">75<span>GAMES</span></a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#games">Games</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <button id="login-btn" class="login-btn">Login</button>
+</header>
+
+<main>
+
+    <!-- HOME -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <span class="tag">WELCOME TO 75 GAMES</span>
+            <h1>PLAY SMART.<br><span>THINK BETTER.</span></h1>
+            <p>Challenge your mind. Improve your strategy. Become a chess master.</p>
+            <button id="play-chess" class="primary-btn">Play Chess</button>
+        </div>
+        <div class="hero-icon">♟</div>
+    </section>
+
+    <!-- GAMES -->
+    <section id="games" class="section">
+        <div class="section-heading">
+            <span class="tag">OUR GAME COLLECTION</span>
+            <h2>Choose Your Game</h2>
+            <p>Start your next challenge.</p>
+        </div>
+
+        <div class="game-card">
+            <div class="chess-icon">♞</div>
+            <h3>Chess Arena</h3>
+            <p>Play against a computer or challenge a friend locally.</p>
+
+            <div class="mode-buttons">
+                <button class="mode-btn" data-mode="Computer">
+                    Play vs Computer
+                </button>
+
+                <button class="mode-btn secondary-btn" data-mode="Friend">
+                    Play with Friend
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOGIN DEMO -->
+    <section id="login-section" class="section hidden">
+        <div class="panel login-panel">
+            <h2>Welcome Back</h2>
+            <p>Demo login for 75 Games</p>
+
+            <form id="login-form">
+                <input id="username" type="text"
+                    placeholder="Enter username" required>
+                <input type="password"
+                    placeholder="Enter password" required>
+                <button class="primary-btn" type="submit">Login</button>
+            </form>
+
+            <p id="login-message"></p>
+            <small>This is a frontend demo, not a real account system.</small>
+        </div>
+    </section>
+
+    <!-- CHESS GAME -->
+    <section id="chess-game" class="section hidden">
+
+        <div class="section-heading">
+            <span class="tag">75 GAMES CHESS ARENA</span>
+            <h2>Chess Battle</h2>
+            <p id="game-mode">Select a game mode</p>
+        </div>
+
+        <div class="game-layout">
+
+            <!-- GAME SETTINGS -->
+            <div class="panel settings-panel">
+                <h3>⚙ Game Settings</h3>
+
+                <label for="timer-setting">Time Control</label>
+                <select id="timer-setting">
+                    <option value="5">5 Minutes</option>
+                    <option value="10" selected>10 Minutes</option>
+                    <option value="15">15 Minutes</option>
+                </select>
+
+                <label for="difficulty">AI Difficulty</label>
+                <select id="difficulty">
+                    <option value="1">Easy</option>
+                    <option value="2" selected>Medium</option>
+                    <option value="4">Hard</option>
+                </select>
+
+                <div class="timer-box">
+                    <div class="clock-card">
+                        <span>WHITE</span>
+                        <strong id="white-clock">10:00</strong>
+                    </div>
+
+                    <div class="clock-card">
+                        <span>BLACK</span>
+                        <strong id="black-clock">10:00</strong>
+                    </div>
+                </div>
+
+                <div class="game-status-box">
+                    <span>GAME STATUS</span>
+                    <h3 id="game-status">White to move</h3>
+                    <p id="game-message">Select a piece to see its legal moves.</p>
+                </div>
+
+                <div class="control-buttons">
+                    <button id="undo-btn" class="secondary-btn">
+                        ↶ Undo
+                    </button>
+
+                    <button id="reset-board" class="primary-btn">
+                        🔄 Restart Game
+                    </button>
+
+                    <button id="sound-btn" class="secondary-btn">
+                        🔊 Sound On
+                    </button>
+                </div>
+            </div>
+
+            <!-- BOARD -->
+            <div class="board-panel">
+                <div class="board-label">♔ WHITE PLAYER</div>
+                <div id="chessboard"></div>
+                <div class="board-label bottom-label">♚ BLACK PLAYER</div>
+            </div>
+
+            <!-- MOVE HISTORY -->
+            <div class="panel history-panel">
+                <h3>📜 Move History</h3>
+                <div id="move-history">No moves yet</div>
+            </div>
+
+        </div>
+
+        <!-- STATS -->
+        <div class="panel stats-panel">
+            <h3>🏆 Your Computer Match Stats</h3>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <strong id="wins">0</strong>
+                    <span>Wins</span>
+                </div>
+
+                <div class="stat-item">
+                    <strong id="losses">0</strong>
+                    <span>Losses</span>
+                </div>
+
+                <div class="stat-item">
+                    <strong id="draws">0</strong>
+                    <span>Draws</span>
+                </div>
+            </div>
+
+            <button id="reset-stats" class="secondary-btn">
+                Reset Stats & History
+            </button>
+        </div>
+
+        <!-- MATCH HISTORY -->
+        <div class="panel match-history-section">
+            <h3>🏆 Match History</h3>
+            <div id="match-history">No matches played yet</div>
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about-section">
+        <span class="tag">ABOUT US</span>
+        <h2>About 75 Games</h2>
+        <p>
+            75 Games is a gaming project built to bring fun,
+            strategy and challenges together.
+        </p>
+        <p>More games and features coming soon.</p>
+    </section>
+
+</main>
+
+<footer>
+    <a href="#home" class="logo">75<span>GAMES</span></a>
+    <p>© 2026 75 Games. All rights reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
